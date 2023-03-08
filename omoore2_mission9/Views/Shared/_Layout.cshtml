@@ -9,12 +9,16 @@
 <body>
     <div class="bg-dark text-white p-2">
         <span class="navbar-brand ml-2">book store</span>
+        <a asp-page="/Basket">
+            <img src="~/cart.png" style="width:50px; float:right;"/>
+            <h1>@Model.basket.Items?.Any() != true)</h1>
+        </a>
     </div>
     <div class="row m-1 p-1">
-        <div id="categories" class="col-4">
-            A nod to my guy Jeff B.
+        <div id="categories" class="col-3">
+            <vc:category></vc:category>
         </div>
-        <div class="col-3">
+        <div class="col-8">
             @RenderBody()
         </div>
         <div class="col-5"></div>
