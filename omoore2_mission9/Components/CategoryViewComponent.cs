@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using omoore2_mission9.Models;
-
+//Manages the category page
 namespace omoore2_mission9.Components
 {
     public class CategoryViewComponent : ViewComponent

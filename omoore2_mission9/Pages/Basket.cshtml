@@ -4,9 +4,9 @@
 
 @{
 }
-
+@*This page manages the appearance of the Cart pages and links it with instances of the model*@
 <h2>Your Basket</h2>@if (Model.basket.Items?.Any() != true)
-{ <h3>is empty....</h3>}
+{<h3 class="alert-danger">is empty....</h3>}@*Something extra in bootstrap*@
 else
 {
     <table class="table table-bordered table-striped">
@@ -20,7 +20,7 @@ else
             </tr>
         </thead>
 
-        <tbody>
+        <tbody> 
 
             @foreach (var i in Model.basket.Items)
             {
@@ -29,7 +29,6 @@ else
                     <td>
                         @i.Quantity &nbsp;
 
-                        @*<button type="submit" class="btn badge badge-pill badge-primary">+</button>*@
                     </td>
 
                     <td>@i.Price</td>
@@ -46,6 +45,6 @@ else
         </tfoot>
     </table>
 }
-    <div>
-        <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
-    </div>
+<div>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>

@@ -8,7 +8,7 @@ using omoore2_mission9.Infrastructure;
 using omoore2_mission9.Models;
 
 namespace omoore2_mission9.Pages
-{
+{ //This page manages the classes for the Basket page
     public class BasketModel : PageModel
     {
 
