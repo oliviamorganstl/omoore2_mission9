@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace omoore2_mission9.Models
 {
@@ -9,7 +11,7 @@ namespace omoore2_mission9.Models
     {
         public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
 
-        public void AddItem(Book book, int qty, float price)
+        public virtual void AddItem(Book book, int qty, float price)
         {
             BasketLineItem line = Items
                 .Where(b => b.Book.BookID == book.BookID)
@@ -30,6 +32,17 @@ namespace omoore2_mission9.Models
             }
         }
 
+
+        public virtual void RemoveItem(Book boo)
+        {
+            Items.RemoveAll(x => x.Book.BookID == boo.BookID);
+        }
+
+        public virtual void ClearBasket()
+        {
+            Items.Clear();
+        }
+
         public double CalculateTotal()
         {
             double sum = Items.Sum(x => x.Quantity * x.Price);
@@ -41,6 +54,7 @@ namespace omoore2_mission9.Models
 
     public class BasketLineItem
     {
+        [Key]
         public int LineID { get; set; }
         public Book Book { get; set; }
         public int Quantity { get; set; }

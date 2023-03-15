@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
-<head><!--Main HTML layout skeleton-->
+<head>
+    <!--Main HTML layout skeleton-->
     <meta name="viewport" content="width=device-width" />
     <title>BookStore</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -8,19 +9,23 @@
 </head>
 <body>
     <div class="bg-dark text-white p-2">
-        <span class="navbar-brand ml-2">book store</span><span></span>
-        <a asp-page="/Basket">
-            <img src="~/cart.png" class="img-thumbnail" style="width:50px; float:right;" />
-        </a>
-    </div>
-    <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            <vc:category></vc:category>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">book store</div>
+                <div class="col-4 text-right">
+                    <vc:cart-summary />
+                </div>
+            </div>
+            </div>
         </div>
-        <div class="col-8">
-            @RenderBody()
+        <div class="row m-1 p-1">
+            <div id="categories" class="col-3">
+                <vc:category></vc:category>
+            </div>
+            <div class="col-8">
+                @RenderBody()
+            </div>
+            <div class="col-5"></div>
         </div>
-        <div class="col-5"></div>
-    </div>
 </body>
 </html>
